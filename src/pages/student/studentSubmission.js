@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBarStudent from "./NavbarStudent";
-import { fetchAssignments } from "../../redux/actions/lecturer/getAllAssignment";
+import { fetchStudentAssignments } from "../../redux/actions/lecturer/getAllAssignment";
 import {
   setSearchTerm,
   setFilteredAssignments,
@@ -22,7 +22,7 @@ const studentSubmission = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchAssignments());
+    dispatch(fetchStudentAssignments());
   }, [dispatch]);
 
   const handleSearch = (searchValue) => {
@@ -129,9 +129,9 @@ const studentSubmission = () => {
                         </div>
                       ) : (
                         filteredAssignments.map((assignment) => (
-                          <tr className="border-b w-full" key={assignment.id}>
+                          <tr className="border-b w-full" key={assignment.assignment_id}>
                             <Link
-                              to={`/student/single/assignment/${assignment.id}`}
+                              to={`/student/single/assignment/${assignment.assignment_id}`}
                               className="no-underline text-[#797676]"
                             >
                               <td className="px-12 py-4 w-56 font-work-sans whitespace-nowrap ">
@@ -141,10 +141,10 @@ const studentSubmission = () => {
 
                             <td className="w-44 pb-4 font-work-sans ">
                               <Link
-                                to={`/student/single/assignment/${assignment.id}`}
+                                to={`/student/single/assignment/${assignment.assignment_id}`}
                                 className="no-underline text-[#797676]"
                               >
-                                <h3
+                                {/* <h3
                                   className={`w-32 pl-2 ${
                                     assignment.submissions.length === 0
                                       ? "bg-red-500"
@@ -154,23 +154,23 @@ const studentSubmission = () => {
                                   {assignment.submissions.length === 0
                                     ? "Not Submitted"
                                     : "Submitted"}
-                                </h3>
+                                </h3> */}
                               </Link>
                             </td>
 
                             <td className="px-2 pb-4 w-56 pt-2 font-work-sans ">
                               <Link
-                                to={`/student/single/assignment/${assignment.id}`}
+                                to={`/student/single/assignment/${assignment.assignment_id}`}
                                 className="no-underline text-[#797676]"
                               >
                                 <span>
-                                  {ReactHtmlParser(assignment.description.substring(0, 50))}
+                                  {assignment.assignment_description}
                                 </span>
                               </Link>
                             </td>
 
                             <Link
-                              to={`/student/single/assignment/${assignment.id}`}
+                              to={`/student/single/assignment/${assignment.assignment_id}`}
                               className="no-underline text-[#FF3131]"
                             >
                               <td className="px-4 py-4 xl:w-1/5 whitespace-nowrap text-end font-work-sans">

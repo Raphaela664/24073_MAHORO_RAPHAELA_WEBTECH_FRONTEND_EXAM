@@ -22,7 +22,7 @@ const StudentSingleAssignment = () => {
         const retrievedAssignment = await GetSingleAssignment(assignmentId);
         console.log(retrievedAssignment)
         if (retrievedAssignment) {
-          setAssignment(retrievedAssignment.data.data);
+          setAssignment(retrievedAssignment);
           setLoading(false);
         }
       } catch (error) {
@@ -56,17 +56,17 @@ const StudentSingleAssignment = () => {
               <div className="ml-12 items-center justify-center flex text-[#FFF]">
                 <h3 className="text-2xl mr-8">{assignment.title}</h3>
                 <div>
-                  {/* {assignment.submissions.length === 0 ? (
+                  {/* {assignment.submissions.length === 0 ? ( */}
                     <div className="flex items-center">
                       <img src={Stop} alt="Not Submitted" className="mr-2" />
                       <h3 className="text-xs text-red-500">Not Submitted</h3>
                     </div>
-                  ) : (
+                  {/* ) : ( */}
                     <div className="flex items-center">
                       <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
                       <h3 className="text-xs text-green-500">Submitted</h3>
                     </div>
-                  )} */}
+                  {/* )} */}
                 </div>
               </div>
 

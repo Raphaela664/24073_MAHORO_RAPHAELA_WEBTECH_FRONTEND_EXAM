@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 import API from "../../../utils/api";
 
-const GetSingleAssignment = async (assignmentId) => {
+const GetSingleAssignment = async (assignment_id) => {
   try {
   
 
-    const response = await API.get(`assignment/viewSingleAssignment/${assignmentId}`);
-    console.log(response)
-    return response;
+    const response = await API.get(`assignment/ViewSingleAssignment/${assignment_id}`);
+   
+    return response.data;
   } catch (error) {
  
     console.error(error);
