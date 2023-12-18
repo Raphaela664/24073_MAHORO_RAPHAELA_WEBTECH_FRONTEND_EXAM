@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# 24073_MAHORO_RAPHAELA_WEBTECH_FRONTEND_EXAM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### ASSIGNMENT SUBMISSION PLATFORM LMS ###
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Requirement
 
-### `npm start`
+- **purpose of the project:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  The Assignment Submission Platform is a web-based application aimed at simplifying the process of creating and submitting assignments in an educational setting. Developed using React for the frontend and Spring Boot for the backend, the platform caters to the needs of administrators, lecturers, and students.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Expected Outcomes:**
 
-### `npm test`
+  - Assignment Creation: Lecturers can create assignments, specifying details such as due dates and instructions.
+  - Assignment Submission: Students can view and submit assignments through a user-friendly interface.
+  -  User Management: Admin can manage users (lecturers and students) and define the scope of the project (school or class).
+  - Secure Access: Login with protected routes ensures secure access for authorized users.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Specific Constraints or Limitations:**
+  - Time Constraints: The project was supposed to be completed within 3 weeks
+  - Security constraints: 
+      - File Upload Security:  Need to Implement file scanning mechanisms to detect and prevent potential threats.
+  -  Scalability limitation: Handling an increased number of students may pose challenges for lecturers.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Plan
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **scope of the project:**
+    - The project encompasses the development of a web-based assignment submission platform using React and Spring Boot.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **source code:**
+  - The source code for the project is hosted on GitHub:
+      - Backend:  https://github.com/Raphaela664/24073_MAHORO_RAPHAELA_WEBTECH_BACKEND_EXAM.git
+      - Frontend: https://github.com/Raphaela664/24073_MAHORO_RAPHAELA_WEBTECH_FRONTEND_EXAM.git
+## Database schema
 
-### `npm run eject`
+- **Table definitions**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1.  Assignment
+    - assignment_id(PK)
+    - title
+    - assignment_description
+    - deadline
+    - lecturer_id (FK)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Lecturer
+    - lecturer_id (PK)
+    - name
+    - email   (Unique)
+    - password
+    - role
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Student
+    - student_id (PK)
+    - name
+    - email   (Unique)
+    - password
+    - role
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Admin
+    - admin_id (PK)
+    - name
+    - email   (Unique)
+    - password
+    - role
 
-## Learn More
+5. Invitations
+    - invitation_id (PK)
+    - assignment_id (FK)
+    - student_id    (FK)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Submissions
+    - submission_id (PK)
+    - assignment_id (FK)
+    - student_id  (FK)
+    - file_url
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## User Documentation
 
-### Code Splitting
+- **Assignment Creation:**  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - Lecturers can log in and create assignments, specifying details, due dates and inviting 
+    students to the assignment.
+  - Once a student is invited, the assignment will show on their dashboard
+  
 
-### Analyzing the Bundle Size
+- **Assignment Submission:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  - Students log in, view assignments, and submit work through the platform.
 
-### Making a Progressive Web App
+- **User Management (Admin):**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  - Admin is responsible for users creation and management, and as well as monitors system activities.
+  - Each user once created receive an email with their Login credentials
 
-### Advanced Configuration
+- **Login Credentials:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  - Admin:  
+        - Username - admin123@gmail.com, 
+        - Password - admin123
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technical Documentation
+
+- **Architecture**
+  - The application follows a client-server architecture, with React handling the frontend and Spring Boot serving as the backend.
+
+- **Implementation Details:**
+
+  - Frontend:
+
+    - ![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+    - ![Tailwind CSS](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss)
+
+  - Backend:
+
+    - ![Java](https://img.shields.io/badge/Java-17-blue?logo=java&style=flat-square)
+
+    - ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3-green?logo=spring&style=flat-square)
+
+  - Database:
+
+    - ![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql&style=flat-square)
+
+  - Dependencies:
+
+    - Spring Boot Starter Web, Spring Boot Starter Data JPA, React Router, Axios
+
